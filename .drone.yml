@@ -1,6 +1,19 @@
 ---
 kind: pipeline
-name: build and push
+name: build container
+steps:
+
+- name: build-container  
+  image: plugins/docker
+  settings:
+    repo: harbor.apps.infra.hahl.id.au/hahl.id.au/image-build-tools
+  when:
+    branch:
+      - master
+      - main
+---
+kind: pipeline
+name: promote
 steps:
 
 - name: build-tags
@@ -19,10 +32,11 @@ steps:
       from_secret: harbor_username
     password:
       from_secret: harbor_password
-    repo: harbor.apps.infra.hahl.id.au/hahl.id.au/guestfs-tools
+    repo: harbor.apps.infra.hahl.id.au/hahl.id.au/image-build-tools
     registry: harbor.apps.infra.hahl.id.au
   when:
     branch:
       - master
       - main
-
+depends_on:
+  - build container
