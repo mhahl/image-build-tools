@@ -15,6 +15,11 @@ steps:
     branch:
       - master
       - main
+trigger:
+  event:
+  - push
+  - pull_request
+
 ---
 kind: pipeline
 name: promote
@@ -27,7 +32,7 @@ steps:
       - push
       - pull_request
   commands:
-    - echo -n "$(date +'%Y%m%d%H%M'), latest" > .tags
+    - echo -n "$(date +'%Y%m%d%H%M'), latest, ${TARGET}" > .tags
 
 - name: build-container  
   image: plugins/docker
