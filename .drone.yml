@@ -1,0 +1,28 @@
+---
+kind: pipeline
+name: build and push
+steps:
+
+- name: build-tags
+  image: alpine
+  when:
+    event:
+      - push
+      - pull_request
+  commands:
+    - echo -n "$(date +'%Y%m%d%H%M'), latest" > .tags
+
+- name: build-container  
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: harbor_username
+    password:
+      from_secret: harbor_password
+    repo: harbor.apps.infra.hahl.id.au/hahl.id.au/guestfs-tools
+    registry: harbor.apps.infra.hahl.id.au
+  when:
+    branch:
+      - master
+      - main
+
