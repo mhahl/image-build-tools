@@ -7,7 +7,10 @@ steps:
   image: plugins/docker
   settings:
     dry_run: true
-    tags: build
+    repo: harbor.apps.infra.hahl.id.au/hahl.id.au/image-build-tools
+    registry: harbor.apps.infra.hahl.id.au
+    tags:
+      - "build"
   when:
     branch:
       - master
@@ -35,10 +38,6 @@ steps:
       from_secret: harbor_password
     repo: harbor.apps.infra.hahl.id.au/hahl.id.au/image-build-tools
     registry: harbor.apps.infra.hahl.id.au
-  when:
-    branch:
-      - master
-      - main
 trigger:
   event:
   - promote
