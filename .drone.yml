@@ -5,8 +5,6 @@ steps:
 
 - name: build-container  
   image: plugins/docker
-  settings:
-    repo: harbor.apps.infra.hahl.id.au/hahl.id.au/image-build-tools
   when:
     branch:
       - master
