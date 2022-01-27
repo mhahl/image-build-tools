@@ -8,12 +8,12 @@ RUN dnf install -y libguestfs-tools \
                    qemu-img \
                    libvirt \
                    gcc \
-                   python36 python3-pip gcc-c++ \
+                   python38 python3-pip gcc-c++ \
                    autoconf redhat-rpm-config \
-                   python36-devel && \
-    pip install --upgrade pip && \
-    pip install ansible openstacksdk openstackclient pyparsing==2.4.7 && \
-    dnf uninstall -y python36-devel gcc gcc+c++ autoconf redhat-rpm-config automake && \
+                   python38-devel && \
+    pip3 install --upgrade pip && \
+    pip3 install ansible openstacksdk openstackclient pyparsing==2.4.7 && \
+    dnf uninstall -y python38-devel gcc gcc+c++ autoconf redhat-rpm-config automake && \
     dnf clean all -y
 
 
