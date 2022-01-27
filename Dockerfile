@@ -1,21 +1,13 @@
-FROM harbor.apps.infra.hahl.id.au/cache/library/centos:latest
+FROM harbor.apps.infra.hahl.id.au/cache/library/centos:8
 
 MAINTAINER Mark Hahl <mark@hahl.id.au>
 
-LABEL Description="Provides image building tools" Version="0.1"
+LABEL Description="Provides image building tools" Version="0.2"
 
-RUN dnf install -y libguestfs-tools \
-                   qemu-img \
-                   libvirt \
-                   gcc \
-                   python38 python3-pip gcc-c++ \
-                   autoconf redhat-rpm-config \
-                   python38-devel && \
-    pip3 install --upgrade pip && \
-    pip3 install ansible openstacksdk openstackclient && \
-    dnf uninstall -y python38-devel gcc gcc-c++ && \
+RUN dnf install centos-release-openstack-ussuri -y && \
+    dnf upgrade -y && \
+    dnf install -y libguestfs-tools python3-openstackclient && \
     dnf clean all -y
-
 
 CMD ["/bin/bash"]
 
