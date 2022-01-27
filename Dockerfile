@@ -8,7 +8,7 @@ RUN dnf install -y libguestfs-tools \
                    qemu-img \
                    libvirt \
                    gcc \
-                   python36 gcc-c++ \
+                   python36 python36-pip gcc-c++ \
                    autoconf redhat-rpm-config \
                    python36-devel && \
     pip install --upgrade pip && \
