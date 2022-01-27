@@ -5,6 +5,9 @@ steps:
 
 - name: build-container  
   image: plugins/docker
+  settings:
+    dry_run: true
+    tags: build
   when:
     branch:
       - master
