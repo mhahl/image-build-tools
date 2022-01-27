@@ -12,8 +12,8 @@ RUN dnf install -y libguestfs-tools \
                    autoconf redhat-rpm-config \
                    python38-devel && \
     pip3 install --upgrade pip && \
-    pip3 install ansible openstacksdk openstackclient pyparsing==2.4.7 && \
-    dnf uninstall -y python38-devel && \
+    pip3 install ansible openstacksdk openstackclient && \
+    dnf uninstall -y python38-devel gcc gcc-c++ && \
     dnf clean all -y
 
 
