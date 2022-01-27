@@ -29,7 +29,7 @@ steps:
   image: alpine
   commands:
     - env
-    - echo -n "$(date +'%Y%m%d%H%M'), latest, ${TARGET}" > .tags
+    - echo -n "$(date +'%Y%m%d%H%M'), latest, ${DRONE_DEPLOY_TO}" > .tags
 
 - name: build-container  
   image: plugins/docker
