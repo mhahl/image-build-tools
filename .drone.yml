@@ -6,6 +6,7 @@ steps:
 - name: build-container  
   image: plugins/docker
   settings:
+    custom_dns: "9.9.9.9"
     dry_run: true
     repo: harbor.apps.infra.hahl.id.au/hahl.id.au/image-build-tools
     registry: harbor.apps.infra.hahl.id.au
