@@ -2,7 +2,7 @@ FROM harbor.apps.infra.hahl.id.au/cache/library/centos:8
 
 MAINTAINER Mark Hahl <mark@hahl.id.au>
 
-LABEL Description="Provides image building tools" Version="0.4"
+LABEL Description="Provides image building tools" Version="0.9"
 
 RUN dnf install centos-release-openstack-victoria dnf-plugins-core -y && \
     dnf config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
