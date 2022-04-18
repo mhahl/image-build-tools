@@ -1,8 +1,8 @@
-FROM harbor.apps.infra.hahl.id.au/cache/library/centos:8
+FROM quay.io/centos/amd64:stream9
 
 MAINTAINER Mark Hahl <mark@hahl.id.au>
 
-LABEL Description="Provides image building tools" Version="0.9"
+LABEL Description="Provides image building tools" Version="1.0"
 
 RUN dnf install centos-release-openstack-victoria dnf-plugins-core -y && \
     dnf config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
