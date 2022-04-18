@@ -3,14 +3,6 @@ kind: pipeline
 name: build container
 steps:
 
-- name: debug
-  image: quay.io/centos/amd64:stream9
-  commands:
-    - env
-    - cat /etc/resolv.conf
-    - ping -c1 google.com
-    - nslookup gogle.com
-
 - name: build-container  
   image: plugins/docker
   settings:
