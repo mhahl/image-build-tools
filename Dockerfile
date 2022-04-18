@@ -4,9 +4,7 @@ MAINTAINER Mark Hahl <mark@hahl.id.au>
 
 LABEL Description="Provides image building tools" Version="1.0"
 
-RUN systemctl disable systemd-resolved && \
-    systemctl stop systemd-resolved && \
-    rm /etc/resolv.conf && \
+RUN rm /etc/resolv.conf && \
     echo "nameserver 9.9.9.9" > /etc/resolv.conf
 
 RUN dnf install centos-release-openstack-victoria dnf-plugins-core -y && \
