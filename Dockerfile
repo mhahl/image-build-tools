@@ -1,4 +1,4 @@
-FROM quay.io/centos/amd64:stream9
+FROM quay.io/centos/amd64:stream8
 
 MAINTAINER Mark Hahl <mark@hahl.id.au>
 
